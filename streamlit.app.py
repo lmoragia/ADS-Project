@@ -5,8 +5,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 
-# Load the trained model
+# Load the trained model and scaler
 model = joblib.load("best_model1.pkl")
+scaler = joblib.load("scaler.pkl")  # Assuming you saved the scaler during training
 
 # Define the app title and layout
 st.title("Iris Flower Species App")
@@ -16,9 +17,7 @@ id = st.number_input("Id", min_value=0, max_value=100, value=60, step=1)
 sepal_length_cm = st.number_input("Sepal Length in CM", min_value=0.0, max_value=10.0, value=5.0, step=0.1)
 sepal_width_cm = st.number_input("Sepal Width in CM", min_value=0.0, max_value=10.0, value=5.0, step=0.1)
 petal_length_cm = st.number_input("Petal Length in CM", min_value=0.0, max_value=10.0, value=5.0, step=0.1)
-petal_width_cm = st.number_input("petal Width in CM", min_value=0.0, max_value=10.0, value=5.0, step=0.1)
-species = st.selectbox("Species", ["Setosa", "Versicolor", "Virginica"])
-
+petal_width_cm = st.number_input("Petal Width in CM", min_value=0.0, max_value=10.0, value=5.0, step=0.1)
 
 # Create a button for making predictions
 if st.button("Predict"):
@@ -29,15 +28,12 @@ if st.button("Predict"):
             "SepalLengthCm": [sepal_length_cm],
             "SepalWidthCm": [sepal_width_cm],
             "PetalLengthCm": [petal_length_cm],
-            "PetalWidthCm": [petal_width_cm],
-            "Species": [1 if species == "Setosa" else 0],
-          
+            "PetalWidthCm": [petal_width_cm]
         }
     )
 
-    # Scale input data using the same scaler used during training
-    scaler = StandardScaler()
-    input_data_scaled = scaler.fit_transform(input_data)
+    # Scale input data using the scaler used during training
+    input_data_scaled = scaler.transform(input_data)
 
     # Make a prediction using the trained model
     prediction = model.predict(input_data_scaled)
