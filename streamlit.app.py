@@ -7,7 +7,6 @@ import joblib
 
 # Load the trained model and scaler
 model = joblib.load("best_model1.pkl")
-scaler = joblib.load("scaler.pkl")  # Assuming you saved the scaler during training
 
 # Define the app title and layout
 st.title("Iris Flower Species App")
