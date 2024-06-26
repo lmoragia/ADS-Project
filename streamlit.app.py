@@ -5,8 +5,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 
+
 # Load the trained model and scaler
 model = joblib.load("best_model1.pkl")
+
 
 # Define the app title and layout
 st.title("Iris Flower Species App")
