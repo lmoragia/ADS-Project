@@ -80,7 +80,7 @@ Pympler==1.0.1
 pyparsing==3.1.2
 python-dateutil==2.9.0.post0
 pytz==2024.1
-pywin32==302
+pywin32==303
 pyzmq==25.1.2
 referencing==0.34.0
 requests==2.31.0
