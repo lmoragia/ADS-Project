@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 import joblib
+import altair.vegalite.v4 as alt
 
 
 # Load the trained model and scaler
