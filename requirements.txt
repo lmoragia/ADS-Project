@@ -61,7 +61,7 @@ openpyxl==3.1.2
 opt-einsum==3.3.0
 optree==0.11.0
 packaging==23.2
-pandas==2.2.1
+pandas==1.5.3
 parso==0.8.3
 patsy==0.5.6
 pillow==10.2.0
